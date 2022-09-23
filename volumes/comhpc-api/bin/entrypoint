@@ -1,0 +1,8 @@
+#!/bin/bash
+
+source install/setup.bash
+
+ros2 launch \
+tier4_autoware_api_launch autoware_api.launch.xml \
+init_simulator_pose:=true \
+init_localization_pose:=false

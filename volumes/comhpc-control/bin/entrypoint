@@ -1,0 +1,8 @@
+#!/bin/bash
+
+source install/setup.bash
+
+ros2 launch tier4_control_launch \
+control.launch.py \
+lateral_controller_mode:=mpc_follower \
+vehicle_info_param_file:=$(ros2 pkg prefix sample_vehicle_description)/share/sample_vehicle_description/config/vehicle_info.param.yaml

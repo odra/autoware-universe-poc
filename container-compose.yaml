@@ -1,0 +1,106 @@
+version: "3.9"
+services:
+  comhpc-api:
+    cap_add:
+      - ALL
+    image: ghcr.io/autowarefoundation/autoware-universe:humble-latest-prebuilt
+    environment:
+      - CYCLONEDDS_URI=file:///etc/cyclonedds/cyclonedds.xml
+      - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+    command:
+      #- sleep
+      #- infinity
+      - /opt/app/bin/entrypoint
+    volumes:
+      - ./volumes/comhpc-api/bin:/opt/app/bin:z
+      - ./volumes/cyclonedds:/etc/cyclonedds:z
+  comhpc-control:
+    cap_add:
+      - ALL
+    image: ghcr.io/autowarefoundation/autoware-universe:humble-latest-prebuilt
+    environment:
+      - CYCLONEDDS_URI=file:///etc/cyclonedds/cyclonedds.xml
+      - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+    command:
+      #- sleep
+      #- infinity
+      - /opt/app/bin/entrypoint
+    volumes:
+      - ./volumes/comhpc-control/bin:/opt/app/bin:z
+      - ./volumes/cyclonedds:/etc/cyclonedds:z
+      - ./volumes/comhpc-data:/map:z
+  comhpc-map:
+    cap_add:
+      - ALL
+    image: ghcr.io/autowarefoundation/autoware-universe:humble-latest-prebuilt
+    environment:
+      - CYCLONEDDS_URI=file:///etc/cyclonedds/cyclonedds.xml
+      - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+    command:
+      #- sleep
+      #- infinity
+      - /opt/app/bin/entrypoint
+    volumes:
+      - ./volumes/comhpc-map/bin:/opt/app/bin:z
+      - ./volumes/cyclonedds:/etc/cyclonedds:z
+      - ./volumes/comhpc-data:/map:z
+  comhpc-planning:
+    cap_add:
+      - ALL
+    image: ghcr.io/autowarefoundation/autoware-universe:humble-latest-prebuilt
+    environment:
+      - CYCLONEDDS_URI=file:///etc/cyclonedds/cyclonedds.xml
+      - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+    command:
+      #- sleep
+      #- infinity
+      - /opt/app/bin/entrypoint
+    volumes:
+      - ./volumes/comhpc-planning/bin:/opt/app/bin:z
+      - ./volumes/cyclonedds:/etc/cyclonedds:z
+      - ./volumes/comhpc-data:/map:z
+  comhpc-simulator:
+    cap_add:
+      - ALL
+    image: ghcr.io/autowarefoundation/autoware-universe:humble-latest-prebuilt
+    environment:
+      - CYCLONEDDS_URI=file:///etc/cyclonedds/cyclonedds.xml
+      - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+    command:
+      #- sleep
+      #- infinity
+      - /opt/app/bin/entrypoint
+    volumes:
+      - ./volumes/comhpc-simulator/bin:/opt/app/bin:z
+      - ./volumes/cyclonedds:/etc/cyclonedds:z
+      - ./volumes/comhpc-data:/map:z 
+  comhpc-system:
+    cap_add:
+      - ALL
+    image: ghcr.io/autowarefoundation/autoware-universe:humble-latest-prebuilt
+    environment:
+      - CYCLONEDDS_URI=file:///etc/cyclonedds/cyclonedds.xml
+      - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+    command:
+      #- sleep
+      #- infinity
+      - /opt/app/bin/entrypoint
+    volumes:
+      - ./volumes/comhpc-system/bin:/opt/app/bin:z
+      - ./volumes/cyclonedds:/etc/cyclonedds:z
+      - ./volumes/comhpc-data:/map:z
+  comhpc-vehicle:
+    cap_add:
+      - ALL
+    image: ghcr.io/autowarefoundation/autoware-universe:humble-latest-prebuilt
+    environment:
+      - CYCLONEDDS_URI=file:///etc/cyclonedds/cyclonedds.xml
+      - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+    command:
+      #- sleep
+      #- infinity
+      - /opt/app/bin/entrypoint
+    volumes:
+      - ./volumes/comhpc-vehicle/bin:/opt/app/bin:z
+      - ./volumes/cyclonedds:/etc/cyclonedds:z
+      - ./volumes/comhpc-data:/map:z 

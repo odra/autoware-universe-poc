@@ -1,0 +1,7 @@
+#!/bin/bash
+
+source install/setup.bash
+
+ros2 launch tier4_map_launch map.launch.py \
+lanelet2_map_path:=/map/lanelet2_map.osm \
+pointcloud_map_path:=/map/pointcloud_map.pcd

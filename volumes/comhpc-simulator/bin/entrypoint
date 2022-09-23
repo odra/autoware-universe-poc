@@ -1,0 +1,10 @@
+#!/bin/bash
+
+source install/setup.bash;
+
+ros2 launch tier4_simulator_launch simulator.launch.xml \
+launch_dummy_perception:=false \
+launch_dummy_vehicle:=false \
+vehicle_info_param_file:=$(ros2 pkg prefix sample_vehicle_description)/share/sample_vehicle_description/config/vehicle_info.param.yaml \
+vehicle_model:=sample_vehicle \
+scenario_simulation:=true
